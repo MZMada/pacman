@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void InitParams (CMyParam & Param){
+void initParams (CMyParam & Param){
     Param.MapParamChar["Keyup"] = 'z';
     Param.MapParamChar["KeyDown"] = 's';
     Param.MapParamChar["KeyLeft"] = 'q';
