@@ -83,7 +83,7 @@ int ppal (void)
         Move = toupper (Move);
         MoveToken (Mat, Move, (Player1Turn ? PosPlayer1: PosPlayer2));
         ClearScreen();
-        DisplayGrid (Mat);
+        DisplayGrid (Mat, Param);
 
         //Victiry test
         if (PosPlayer1 == PosPlayer2) Victory = true;

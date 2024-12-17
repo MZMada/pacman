@@ -44,17 +44,19 @@ void DisplayGrid (const CMat & Mat, const CMyParam & Param){
                 Color (Param.MapParamString.find("ColorP2")->second);
                 cout << c;
                 Color (KColor.find("KReset")->second);
+            }
+            cout << '|' << endl;
         }
-        cout << '|' << endl;
-    }
-    cout << string (KNbCol + 2 , '-') << endl;
-}// ShowMatrix ()
+        cout << string (KNbCol + 2 , '-') << endl;
+    }// ShowMatrix ()
+}
 
 
-void InitGrid (CMat & Mat, const CMyParam & Param, CPosition & PosPlayer1, CPosition & PosPlayer2){
+void InitGrid (CMat & Mat, const CMyParam & Param, CPosition & PosPlayer1, CPosition & PosPlayer2)
+{
     unsigned Nbline (Param.MapParamUnsigned.find("NbLine")->second),
-    NbColumn(Param.MapParamUnsigned.find("NbColumn")->second);
-    Mat.resize (NbLine);
+        NbColumn(Param.MapParamUnsigned.find("NbColumn")->second);
+    Mat.resize (Nbline);
     const CVLine KLine (NbColumn, KEmpty);
     for (CVLine &ALine : Mat)
         ALine = KLine;
@@ -62,7 +64,7 @@ void InitGrid (CMat & Mat, const CMyParam & Param, CPosition & PosPlayer1, CPosi
     PosPlayer1.first = 0;
     PosPlayer1.second = NbColumn - 1;
     Mat [PosPlayer1.first][PosPlayer1.second] = Param.MapParamChar.find("TokenP1")->second;
-    PosPlayer2.first = NbLine - 1;
+    PosPlayer2.first = Nbline - 1;
     PosPlayer2.second =0;
     Mat [PosPlayer2.first][PosPlayer2.second]   = Param.MapParamChar.find("TokenP2")->second;
 }//InitMat ()
